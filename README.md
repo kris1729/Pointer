@@ -63,4 +63,97 @@ b = 1000;
 cout<<(*ptr) ; // 1000
 ```
 
+# Pointer in arr
+![](./01/first.png)
+
+if int arr[5] ;
+int *ptr = &arr[0];
+or 
+int * ptr = arr
+than the address of each one is 
+arr = arr[0]  --> x
+arr+1 = arr[1] --> x+4
+arr+2 = arr[2] --> x+2*4
+arr+3 = arr[3]
+arr+4 = arr[4]
+
+# cout<< arr[i] ;
+  at this case first go for the address of arr[3] which will
+  **address --> arr + i * dataType size** 
+  and than give the value which is store at this lucation
+
+
+> arr[3] == *(arr+3) == *(3+arr)  == 3[arr]
+
+or 
+int *ptr = arr;
+
+> > ptr[3] == *(ptr+3) == *(3+ptr) == 3[ptr]
+
+
+arr = &arr[0]
+    = & (*(arr+0))
+    = arr  
+
+# print all the address of arr
+```cpp
+int arr[5] = {1,2,3,4,5};
+for(int i =0;i<5;i++)
+cout<< (arr+i) << " same " << &arr[i]<<endl;
+```
+
+# print all tha value 
+
+```cpp
+int arr[5] = {1,2,3,4,5};
+for(int i =0;i<5;i++)
+cout<< arr[i] <<" or " << *(arr+i) << " or " << *(i+arr) << " or " << i[arr]<<endl;
+```
+
+# airthmetic operation of pointer
+
+> print array 
+
+```cpp
+int arr[5] = {1,2,3,4,5};
+
+int *ptr = arr;
+
+for(int i =0;i<5;i++){
+    cout<<*ptr<<" ";
+
+    ptr++; // ptr = ptr + 1
+}
+// or 
+
+int *ptr1 = &arr[4];
+for(int i =0;i<5;i++){
+    cout<<*ptr1<<" ";
+    ptr1--; // ptr1 = ptr1 - 1;
+}
+
+```
+ptr = ptr + 3 ✅
+ptr1 = ptr1 - 2 ✅
+
+# BUT BUT  it's worng
+arr++ ❎
+arr -- ❎
+arr = arr + 3 ❎
+
+> ❎❎❎❎❎❎❎❎worng❎❎❎❎
+```cpp
+int arr[5] = {1,2,3,4,5};
+for(int i =0;i<5;i++)
+{
+    cout<<*arr;
+    arr++;
+}
+```
+bcz these pointer arr , arr+1 , arr+3 are constent
+if it variable then data can be lost 
+
+
+
+
 
