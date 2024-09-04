@@ -290,3 +290,151 @@ int main(){
 ```
 > array always paas by reference 
 
+> # GATE QUESTION-1
+```cpp
+int main(){
+    char c[] = "GATE2024";
+    char *p = &c;
+    cout<<p+c[3]-c[1];  // 2024
+    // p + 'E' - 'A' == p + 4*1(dataType) 
+    // means print the all value p+4
+}
+```
+> # question
+![](./01/02_question.png)
+
+```cpp
+void second(int *p1 , int *p2){
+    p1 = p2;
+    *p1 = 2;
+}
+int main(){
+    int i =0 , j =1;
+    second (&i,&j);
+    cout<<i<<j; // 0 2 
+}
+```
+> # question
+![](./01/03.png)
+
+```cpp
+int *ptr ;
+int x = 0;
+ptr = &x;
+int y = *ptr;
+*ptr = 1;
+cout<< x << y; //  1 0 
+```
+
+> # Question -4
+![](./01/04.png)
+
+```cpp
+int a =5 , int b =10;
+int &home = a; // reference variable , a ka ek aur naam
+int *ptr = &a;
+(*ptr)++; // now a = 6
+ptr = &b; // ptr has add of b
+*ptr = *ptr + 5; // now b = 15
+name += 5 ; // now a = 6 + 5  , a = 11
+cout<<a<<b; // 11 15
+```
+> # double Pointer 
+use for store the address of a pointer 
+- use of dubble pointer is 2D array
+- use of triple pointer is 3D array
+
+```cpp
+int a = 10;
+int *p1 = &a;  // p1 store the address of a
+int **p2 = &p1; // p2 stroe the address of p1 pointer
+int ***p3 = &p2; // p3 store the address of p2 pointer
+// change the value of a
+**p2 = **p2 + 4;
+cout<<a; // 14
+
+***p3  = ***p3 + 10;
+cout<<a; // 24
+
+```
+> n th pointer will hold the (n-1)th pointer address
+ 
+ > # IMPORTANT
+ ```cpp
+ void fun(int *p1){
+    p1++;
+    // create new address p1 and in which 100 become 100++ means
+    // 100 + 4 == 104 
+ }
+ int main(){
+    int a = 100;
+    int *p = &a;
+    fun(p);
+    cout<<a; // 100 not 104
+ }
+```
+> # how to make 104 / using double pointer
+```cpp
+int fun(int **p1){
+    *p1 = *p1 + 1;
+}
+int main(){
+    int a = 100;
+    int *p = &a;
+    int **ptr = &p;
+    fun(ptr);
+    cout<<a; // 104
+}
+```
+
+> # Question (IMPORTAT) 
+![](./01/5.png)
+
+```cpp
+int foor(int x , int *py , int **pp2){
+    // x = 4
+    int y ,z;
+    **pp2 +=1 ; // c = 4 + 1 , c =5
+    z = **pp2;  // z = 5
+    *py += 2; // c = 5 + 2 , c =7
+    y = *py ; // y = 7 
+    x += 3 ; // x = 4 + 3 , x =7;
+    return x + y  + z ; // 7 + 7 + 5 
+}
+
+int main (){
+    int c, *b , **a;
+    c =4 , b = &c , a = &b;
+    cout<< foor(c,b,a); // 19
+}
+```
+> # Question 07
+![](./01/06.png)
+
+```cpp
+void five(char *str1 , char *str2){
+    // str1 point 'M' , str2 point  'R'
+    while((*str1=*str2)){ // M' = 'R'
+        str1++; // point 'o'
+        str2++; // point 'o'
+    }
+    // now first wiil become 'Rohan';
+    // at the last when null char than break the loop
+}
+
+int main(){
+    char first[] = "Mohit";
+    char Second[] = "Rohan";
+    five(first,second);
+    cout<<first; // Rohan
+}
+```
+if while loop contain any thing than it's run 
+at the last when it's get null char than break
+
+> This above code the COPY String CODE
+
+---
+read about double pointer more 
+
+> # Memory Management 
