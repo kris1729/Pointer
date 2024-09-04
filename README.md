@@ -153,7 +153,140 @@ for(int i =0;i<5;i++)
 bcz these pointer arr , arr+1 , arr+3 are constent
 if it variable then data can be lost 
 
+>  # 👍  Pointer With Char Array
+in the case of char array is diff to the 
+int array
+
+here is arr is not address it is value
+```cpp
+char arr[5] = "1234";
+
+char *ptr = arr;
+cout<<arr; // 1234
+cout<<ptr;  // 1234
+
+```
+why --> in the char arry if address is given the nwe print the value not address threw "cout<<arr"
+same is for the ptr also.
+
+bcz of implimentation
 
 
+> # How to print Address
+using type casting
+```cpp
 
+char arr[5] = "1234";
+
+char *ptr = arr;
+cout<<(void*)arr;
+cout<<(void*)ptr;
+// or 
+cour<<static_cast<void*>(arr); // give the addres
+
+```
+> # for char char it will give random ans
+
+```cpp
+char name = 'a';
+char *ptr = &name;
+cout<<ptr; // give random ans
+cout<<&name ; // give random ans
+// for address
+cout<<(void*)&name; // give addres
+//or
+cout<<(void*)ptr: // give addres
+
+```
+# using Pointer / pass by Pointer
+
+```cpp
+
+void inc(int *ptr){
+    // value = *ptr
+    *ptr = *ptr + 1;
+}
+
+int main(){
+    int num = 10;
+    inc(&num);
+    cout<<num; // 11
+}
+
+```
+# double all the value pointer
+```cpp
+void dob(int *ptr){
+    for(int i =0;i<5;i++)
+    ptr[i] = 2*ptr[i]; // *(ptr+i) = 2*(*(ptr+i));
+}
+int main(){
+    int arr[5] = {1,2,3,4,5};
+    dob(arr);
+    for(int i =0;i<5;i++)
+    cout<<arr[i]<<" ";
+}
+```
+> # Swaping using pointer
+```cpp
+int swaping(int *p1, int*p2){
+    int temp = *p1;
+    *p1 = *p2; // p1 add ki value me p2 add ki value
+    *p2 = temp;
+}
+int main(){
+    int a =4;
+    int b =5;
+    swaping(&a,&b);
+    cout<<a<<" "<<b;  // 5 4
+}
+```
+> # Reference Variable
+give two or more than two name to a lucation is called reference variable 
+
+# swaping using reference variable 
+```cpp
+void swaping(int &p1 , int &p2){
+    int temp = p1;
+    p1 = p2;
+    p2 = temp;
+}
+int main(){
+    int a = 5;
+    int b = 4;
+    swaping (a,b);
+    cout<<a<<" "<<b; // 4 , 5 
+}
+```
+
+# Duble the arry
+```cpp
+void dob(vector<int>&v1){
+    for(int i =0;i<v.size();i++)
+    v1[i] = 2 * v1[i]
+}
+
+int main(){
+    vector<int>v(5) = {1,2,3,4,5};
+    dob(v);
+    for(int i =0;i<5;i++)cout<<v[i]<<endl;
+}
+```
+in the case of array 
+
+```cpp
+// void dob(int *p)
+void dob(int p[]){   
+    for(int i =0;i<5;i++){
+       p[i] = 2 * p[i];
+    }
+}
+
+int main(){
+    int arr[5] = {1,2,3,4,5};
+    for(int i =0;i<5;i++)
+    cout<<arr[i]<<" ";
+}
+```
+> array always paas by reference 
 
