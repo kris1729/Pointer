@@ -498,5 +498,44 @@ for(int i =0;i<n;i++)arr[i] = i+1;
 delete []arr;
 // vector take memory form heap and automatic delete not have to delete manualy
 ```
+> # How To create 2D and 3D array using pointer
+![](./01/2darry.png)
+it's a mathod but not we can not use at large scale
+> good mathod
+- we make array , which store the all the address of pointers
+![](./01/2D%20array_new.png)
+
+> 2D array
+ptr will be double pointer bcz its store address of pointer
+```cpp
+int n,m; // row col
+cin>>n>>m;
+
+int **ptr = new int *[n];
+
+for(int i =0;i<n;i++){
+    ptr[i] = new int[m];
+}
+
+// take imput for all
+for(int i =0;i<n;i++)
+for(int j =0;j<m;j++)
+cin>>ptr[i][j];
+
+
+// display same as array
+
+// delete memory
+
+for(int i =0;i<n;i++)
+delete [] ptr[i];
+
+delete [] ptr;
+```
+
+ 
+
+
+
 
 
