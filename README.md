@@ -437,4 +437,66 @@ at the last when it's get null char than break
 ---
 read about double pointer more 
 
-> # Memory Management 
+> # Memory Management (Why Pointer is Important)
+> Worng Approch
+
+ - in this no fixed how much will n if(n>1000000) than how 
+ stack memory can give this ammount of memory so its give arror during 
+ running time 
+ - int arr[1000000] it give error during compiler time
+```cpp
+int n;
+cin>>n;
+int arr[n]; // its can give error during run time
+// int arr[300] good but see some other mathod
+```
+we have two type of memory 
+1. Heap -> use for the dynamic allocation
+2. stack -> use for the static allocation
+
+during the compilation use stack memory and first insert main()
+function after this all respective variable and function and insert 
+and in LIFO order excuate at the last when main exacute than all code 
+will fnished
+
+> # how to memory allot usiing heap memory
+
+using new key word
+new give the addres of heap memory
+```cpp
+int main(){
+int *ptr = new int;
+*ptr = 5;
+float *ptr1 = new float;
+*ptr1 = 2.3;
+int *arr = new int[20];
+}
+```
+>IMPORTANT
+- in this above , all ptr , ptr1, arr are store in stack memory
+for excess the actual (heap) memory value threw these address
+- but for these address alloted memory is in between the **HEAP** memory
+> # how to delete heap memory after use
+using delete key word we delete the alloted memory
+
+```cpp
+// delete memory using pointer
+delete ptr;
+delete  ptr1;
+// imp for array delete 
+delete[] arr;
+```
+
+> # correct mathod for int arr[n]
+```cpp
+int n;
+cun>>n;
+int *ptr = new int[n];
+// fill vlaue
+for(int i =0;i<n;i++)arr[i] = i+1;
+
+delete []arr;
+// vector take memory form heap and automatic delete not have to delete manualy
+```
+
+
