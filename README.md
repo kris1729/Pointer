@@ -508,6 +508,7 @@ it's a mathod but not we can not use at large scale
 > 2D array
 ptr will be double pointer bcz its store address of pointer
 ```cpp
+
 int n,m; // row col
 cin>>n>>m;
 
@@ -531,6 +532,36 @@ for(int i =0;i<n;i++)
 delete [] ptr[i];
 
 delete [] ptr;
+
+```
+
+> # 3D ARRAY USING DYNAMIC MEMORY
+same as 2d array 
+first we have to create multiple 2d array and add all of them
+![](./01/3D%20Array.png)
+```cpp
+int L,B,H;
+cin>>L>>b>>H;
+
+int ***ptr = new int **[L];
+// create 2D array
+for(int i =0;i<L;i++)
+{
+    ptr[i] = new int *[B];
+
+    for (int j =0;j<H;j++){
+        ptr[i][j] = new int [H];
+    }
+}
+
+// fill value
+ for(int i =0;i<L;i++)
+ for(int j =0;j<B;j++)
+for(int k =0;k<H;k++)
+cin>>ptr[i][j][k];
+
+// delete 
+
 ```
 
  
